@@ -1,76 +1,68 @@
 #include <iostream>
 using namespace std;
 
-
 int main() {
+    double res, num1, num2;  // Variáveis para armazenar os números e o resultado do cálculo
+    char op, quest;  // 'op' para o operador da operação (+, -, x, /), 'quest' para decidir se vai continuar
 
-double res,num1,num2;
-char op,quest;
- 
-do{
-
-cout << "Digite o primeiro numero : " <<endl;
-cin >> num1;
-cout << "Digite o sinal do calculo : " << endl;
-cin >> op;
-cout << "Digite o segundo numero : " <<endl;
-cin >> num2;
-
-
-if (op == '+') {
-    
-	res = num1 + num2;
-    cout << "O resultado da soma eh: " << res << endl;
-
-    
-    cout << "Deseja continuar calculando (S/N)? "<< endl;
-    cin >> quest;
-    
-} else if (op == '-') {
-    
-	res = num1 - num2;
-    cout << "O resultado da subtracao eh: " << res << endl;
-
-    
-    cout << "Deseja continuar calculando (S/N)? "<< endl;
-    cin >> quest;
-} else if (op == 'x' || op == 'X') {
-    
-	res = num1 * num2;
-    cout << "O resultado da multiplicacao eh: " << res << endl;
-
-    
-    cout << "Deseja continuar calculando (S/N)? "<< endl;
-    cin >> quest;
-
-} else if (op == '/' || op == '%') {
-    if (num2 != 0) {
+    do {
+        // Entrada dos números e operador
+        cout << "Digite o primeiro numero : " << endl;
+        cin >> num1;
         
-		res = num1 / num2;
-        cout << "O resultado da divisao eh: " << res << endl;
-    
-	} else {
-        
-		cout << "Erro: divisao por zero!" << endl;
-    
-	}
+        cout << "Digite o sinal do calculo : " << endl;
+        cin >> op;
 
-    cout << "Deseja continuar calculando (S/N)? "<< endl;
-    cin >> quest;
-    
-} else {
-    cout << "Operador invalido!" << endl;
+        cout << "Digite o segundo numero : " << endl;
+        cin >> num2;
 
-    cout << "Deseja tentar novamente (S/N)? "<< endl;
-    cin >> quest;
-}
+        // Verifica o operador e realiza o cálculo correspondente
+        if (op == '+') {
+            res = num1 + num2;  // Realiza a soma
+            cout << "O resultado da soma eh: " << res << endl;
+            
+            // Pergunta se o usuário quer continuar
+            cout << "Deseja continuar calculando (S/N)? " << endl;
+            cin >> quest;
 
+        } else if (op == '-') {
+            res = num1 - num2;  // Realiza a subtração
+            cout << "O resultado da subtracao eh: " << res << endl;
 
-} while (quest == 's' || quest == 'S');
+            // Pergunta se o usuário quer continuar
+            cout << "Deseja continuar calculando (S/N)? " << endl;
+            cin >> quest;
 
+        } else if (op == 'x' || op == 'X') {
+            res = num1 * num2;  // Realiza a multiplicação
+            cout << "O resultado da multiplicacao eh: " << res << endl;
 
+            // Pergunta se o usuário quer continuar
+            cout << "Deseja continuar calculando (S/N)? " << endl;
+            cin >> quest;
 
+        } else if (op == '/' || op == '%') {
+            // Verifica se não está tentando dividir por zero
+            if (num2 != 0) {
+                res = num1 / num2;  // Realiza a divisão
+                cout << "O resultado da divisao eh: " << res << endl;
+            } else {
+                cout << "Erro: divisao por zero!" << endl;  // Mensagem de erro para divisão por zero
+            }
 
+            // Pergunta se o usuário quer continuar
+            cout << "Deseja continuar calculando (S/N)? " << endl;
+            cin >> quest;
 
-	return 0;
+        } else {
+            cout << "Operador invalido!" << endl;  // Caso o operador não seja válido
+
+            // Pergunta se o usuário quer tentar novamente
+            cout << "Deseja tentar novamente (S/N)? " << endl;
+            cin >> quest;
+        }
+
+    } while (quest == 's' || quest == 'S');  // Continua o loop enquanto o usuário quiser continuar
+
+    return 0;  // Fim do programa
 }
